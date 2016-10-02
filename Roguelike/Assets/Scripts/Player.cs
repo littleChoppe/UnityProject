@@ -20,6 +20,7 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (GameManager.Instance.Food <= 0) return;
         rigidbody.MovePosition(targetPosition);
         timer += Time.deltaTime;
         if (timer < restTime) return;
@@ -39,35 +40,61 @@ public class Player : MonoBehaviour {
             collider.enabled = true;
             if (hit.transform == null)
             {
-                targetPosition += new Vector2(horizontal, vertical);
+                MoveStep(horizontal, vertical);
             }
             else
             {
-                string itemName = hit.transform.tag;
-                switch(itemName)
-                {
-                    case "OutWall":
-                        break;
-
-                    case "Wall":
-                        animator.SetTrigger("Attack");
-                        hit.collider.SendMessage("TakeDemage");
-                        break;
-
-                    case "Food":
-                        GameManager.Instance.AddFood(FoodConsume);
-                        targetPosition += new Vector2(horizontal, vertical);
-                        Destroy(hit.collider.gameObject);
-                        break;
-
-                    case "Soda":
-                        GameManager.Instance.AddFood(SodaConsume);
-                        targetPosition += new Vector2(horizontal, vertical);
-                        Destroy(hit.collider.gameObject);
-                        break;
-                }
+                HitSomething(hit, horizontal, vertical);
             }
+            GameManager.Instance.ReduceFood(1);
+            GameManager.Instance.OnPlayerMove();
         }
 
 	}
+
+    void HitSomething(RaycastHit2D hit, int horizontal, int vertical)
+    {
+        string itemName = hit.transform.tag;
+        switch (itemName)
+        {
+            case "OutWall":
+                break;
+
+            case "Wall":
+                animator.SetTrigger("Attack");
+                hit.collider.SendMessage("TakeDemage");
+                AudioManager.Instance.PlayerAttack();
+                break;
+
+            case "Food":
+                GameManager.Instance.AddFood(FoodConsume);
+                MoveStep(horizontal, vertical);
+                Destroy(hit.collider.gameObject);
+                AudioManager.Instance.EatFood();
+                break;
+
+            case "Soda":
+                GameManager.Instance.AddFood(SodaConsume);
+                MoveStep(horizontal, vertical);
+                Destroy(hit.collider.gameObject);
+                break;
+
+            case "Enemy":
+                break;
+            case "Exit":
+                MoveStep(horizontal, vertical);
+                break;
+        }
+    }
+    void MoveStep(int horizontal, int vertical)
+    {
+        targetPosition += new Vector2(horizontal, vertical);
+        AudioManager.Instance.PlayerMove();
+    }
+
+    void TakeDemage(int lossFood)
+    {
+        animator.SetTrigger("Demage");
+        GameManager.Instance.ReduceFood(lossFood);
+    }
 }
