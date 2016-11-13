@@ -7,6 +7,7 @@ public class FollowBird : MonoBehaviour {
     private Vector3 offset;
     private float maxY = 2.4f;
     private float minY = -2.4f;
+    private float minX = -6;
 	void Start () {
         birdTransform = GameObject.FindGameObjectWithTag("Player").transform;
         offset = this.transform.position - birdTransform.position;
@@ -19,6 +20,8 @@ public class FollowBird : MonoBehaviour {
             currentPosition.y = maxY;
         if (currentPosition.y < minY)
             currentPosition.y = minY;
+        if (currentPosition.x < minX)
+            currentPosition.x = minX;
         this.transform.position = currentPosition;
 	}
 }
