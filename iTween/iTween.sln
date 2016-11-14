@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{36A0B396-3F03-91C8-94A1-7A6009510CD3}") = "iTween", "Assembly-CSharp-firstpass.csproj", "{2E8FF56C-7A64-88CA-2114-38266CD911C4}"
+EndProject
+Project("{36A0B396-3F03-91C8-94A1-7A6009510CD3}") = "iTween", "Assembly-CSharp.csproj", "{E6954B79-3191-DF8E-38FF-4A29C9232FB8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E8FF56C-7A64-88CA-2114-38266CD911C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E8FF56C-7A64-88CA-2114-38266CD911C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E8FF56C-7A64-88CA-2114-38266CD911C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E8FF56C-7A64-88CA-2114-38266CD911C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6954B79-3191-DF8E-38FF-4A29C9232FB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6954B79-3191-DF8E-38FF-4A29C9232FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6954B79-3191-DF8E-38FF-4A29C9232FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6954B79-3191-DF8E-38FF-4A29C9232FB8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
