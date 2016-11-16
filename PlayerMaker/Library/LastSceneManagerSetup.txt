@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_Scenes/03_Trigger.unity
+- path: Assets/_Scenes/08_PopUpGame.unity
   isLoaded: 1
   isActive: 1
