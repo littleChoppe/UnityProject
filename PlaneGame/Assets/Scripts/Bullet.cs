@@ -4,8 +4,13 @@ using System.Collections;
 public class Bullet : MonoBehaviour {
 
     public float Speed = 4;
-	
+    public AudioClip BulletClip;
 	// Update is called once per frame
+
+    void Start()
+    {
+        MusicManager.Instance.PlaySound(BulletClip, this.transform);
+    }
 	void Update () 
     {
         transform.Translate(Vector3.up * Speed * Time.deltaTime);

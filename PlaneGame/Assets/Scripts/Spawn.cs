@@ -12,18 +12,18 @@ public class Spawn : MonoBehaviour {
 
     public float RateEnemy1 = 1;
     public float RateEnemy2 = 3;
-    public float RateEnemy3 = 10;
+    public float RateEnemy3 = 15;
 
-    public float RateAward1 = 7;
-    public float RateAward2 = 12;
+    public float RateAward1 = 12;
+    public float RateAward2 = 20;
 	// Use this for initialization
 	void Start () 
     {
         InvokeRepeating("CreateEnemy1", 1, RateEnemy1);
         InvokeRepeating("CreateEnemy2", 3, RateEnemy2);
         InvokeRepeating("CreateEnemy3", 6, RateEnemy3);
-        InvokeRepeating("CreateAward1", 10, RateAward1);
-        InvokeRepeating("CreateAward2", 10, RateAward2);
+        InvokeRepeating("CreateAward1", 20, RateAward1);
+        InvokeRepeating("CreateAward2", 30, RateAward2);
 	}
 
     void CreateEnemy1()
