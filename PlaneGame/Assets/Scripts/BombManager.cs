@@ -23,7 +23,7 @@ public class BombManager : MonoBehaviour {
 
     public bool ConsumeBomb()
     {
-        if (count > 0)
+        if (count > 0 && GameManager.Instance.GetGameState() == GameState.Running)
         {
             count--;
             bombText.text = "X " + count;

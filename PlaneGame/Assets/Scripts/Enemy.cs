@@ -78,6 +78,7 @@ public class Enemy : MonoBehaviour {
         {
             MusicManager.Instance.PlaySound(DieClip, this.transform);
             Destroy(gameObject);
+            timer = 0;
         }
         else
             render.sprite = sprites[frameCount];

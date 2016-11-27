@@ -40,14 +40,12 @@ public class ButtonManager : MonoBehaviour {
     public void OnQuitButtonDown()
     {
         MusicManager.Instance.PlaySound(ButtonClip, this.transform);
-        print("click1");
         Application.Quit();
     }
 
     public  void OnRestartButtonDown()
     {
         MusicManager.Instance.PlaySound(ButtonClip, this.transform);
-        print("click2");
         Application.LoadLevel(0);
 
     }

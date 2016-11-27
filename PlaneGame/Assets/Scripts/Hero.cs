@@ -10,7 +10,8 @@ public class Hero : MonoBehaviour {
         Surper,
     }
 
-    public Sprite[] Sprites;
+    public Sprite[] IdleSprites;
+    public Sprite[] DeathSprites;
     public int FrameCountPerSconds = 20;    //每秒播放多少帧
     public float MaxX = 2.5f;
     public float MaxY = 4.3f;
@@ -35,7 +36,7 @@ public class Hero : MonoBehaviour {
         ScondPerFrames = 1f / FrameCountPerSconds;
     }
 
-    void Start()
+    public void Fire()
     {
         GunTop.OpenFire();
     }
@@ -45,23 +46,28 @@ public class Hero : MonoBehaviour {
     {
         if (GameManager.Instance.GetGameState() == GameState.Running)
         {
-            PlayIdleAnimation();
+            PlayAnimation();
             Control();
             ChangeWeapon();
         }
 	}
 
-    void PlayIdleAnimation()
+    void PlayAnimation()
     {
         if (isIdle)
         {
-            timer += Time.deltaTime;    //总时间
-            int FrameCount = (int)(timer / ScondPerFrames);     //这段时间播放的总帧数
-            int index = FrameCount % 2;
-            render.sprite = Sprites[index];
+            PlayIdleAnimation();
         }
         else
-            timer = 0;
+            PlayDeathAnimation();
+    }
+
+    void PlayIdleAnimation()
+    {
+        timer += Time.deltaTime;    //总时间
+        int FrameCount = (int)(timer / ScondPerFrames);     //这段时间播放的总帧数
+        int index = FrameCount % 2;
+        render.sprite = IdleSprites[index];
     }
 
     float CheckBorderLine(float toCheck, float Max)
@@ -142,16 +148,23 @@ public class Hero : MonoBehaviour {
 
     void ToDie()
     {
-        MusicManager.Instance.PlaySound(DeathClip, this.transform);
-        MusicManager.Instance.SwitchMusicState();
-        PlayDeathAnimation();
-        GameManager.Instance.GameOver();
-        Destroy(gameObject);
+        isIdle = false;
+        timer = 0;
     }
 
     void PlayDeathAnimation()
     {
-
+        timer += Time.deltaTime;    //总时间
+        int FrameCount = (int)(timer / ScondPerFrames);     //这段时间播放的总帧数
+        if (FrameCount >= DeathSprites.Length)
+        {
+            timer = 0;
+            MusicManager.Instance.PlaySound(DeathClip, this.transform);
+            GameManager.Instance.GameOver();
+            Destroy(gameObject);
+        }
+        else
+            render.sprite = DeathSprites[FrameCount];
     }
 
     void ChangeWeapon()

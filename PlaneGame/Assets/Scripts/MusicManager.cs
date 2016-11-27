@@ -12,7 +12,12 @@ public class MusicManager : MonoBehaviour {
     {
         if (Instance == null)
             Instance = this;
+    }
+
+    public void InitMusic()
+    {
         IsMute = false;
+        BgSound.Play();
     }
 
     public void SwitchMusicState()
@@ -40,5 +45,11 @@ public class MusicManager : MonoBehaviour {
             Destroy(go, clip.length);
             
         }
+    }
+
+    public void StopMusic()
+    {
+        IsMute = true;
+        BgSound.Stop();
     }
 }

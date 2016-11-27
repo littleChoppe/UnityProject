@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Spawn : MonoBehaviour {
 
+    public static Spawn Instance;
     public GameObject Enemy1;
     public GameObject Enemy2;
     public GameObject Enemy3;
@@ -19,12 +20,18 @@ public class Spawn : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
+        if (Instance == null)
+            Instance = this;
+	}
+
+    public void SpawnItem()
+    {
         InvokeRepeating("CreateEnemy1", 1, RateEnemy1);
         InvokeRepeating("CreateEnemy2", 3, RateEnemy2);
         InvokeRepeating("CreateEnemy3", 6, RateEnemy3);
         InvokeRepeating("CreateAward1", 20, RateAward1);
         InvokeRepeating("CreateAward2", 30, RateAward2);
-	}
+    }
 
     void CreateEnemy1()
     {
@@ -59,5 +66,10 @@ public class Spawn : MonoBehaviour {
         Vector3 position = transform.position;
         position.x = Random.Range(-2.65f, 2.65f);
         GameObject.Instantiate(Award2, position, Quaternion.identity);
+    }
+
+    public void StopSpawn()
+    {
+        CancelInvoke();
     }
 }
