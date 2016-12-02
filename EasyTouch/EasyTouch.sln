@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{C5F9C13A-6849-2F1F-1109-78011FE04984}") = "EasyTouch", "Assembly-CSharp.csproj", "{66098EC7-8FCF-335C-9F0D-01B7BB84DD7C}"
+EndProject
+Project("{C5F9C13A-6849-2F1F-1109-78011FE04984}") = "EasyTouch", "Assembly-CSharp-Editor.csproj", "{B6960155-F4CA-B9E5-AF4E-228F92980744}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66098EC7-8FCF-335C-9F0D-01B7BB84DD7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66098EC7-8FCF-335C-9F0D-01B7BB84DD7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66098EC7-8FCF-335C-9F0D-01B7BB84DD7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66098EC7-8FCF-335C-9F0D-01B7BB84DD7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6960155-F4CA-B9E5-AF4E-228F92980744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6960155-F4CA-B9E5-AF4E-228F92980744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6960155-F4CA-B9E5-AF4E-228F92980744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6960155-F4CA-B9E5-AF4E-228F92980744}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
