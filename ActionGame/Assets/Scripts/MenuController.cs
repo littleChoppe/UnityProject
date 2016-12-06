@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour {
 
@@ -85,7 +85,7 @@ public class MenuController : MonoBehaviour {
     public void OnPlay()
     {
         SaveData();
-        Application.LoadLevel(1);
+        SceneManager.LoadScene(1);
     }
 
     void SaveData()

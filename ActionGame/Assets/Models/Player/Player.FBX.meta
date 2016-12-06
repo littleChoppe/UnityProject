@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 04f157edd6837324991d3d88acab5412
-timeCreated: 1480906609
+timeCreated: 1481032589
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -219,7 +219,7 @@ ModelImporter:
   copyAvatar: 0
   humanDescription:
     human:
-    - boneName: b_Spine
+    - boneName: b_Hips
       humanName: Hips
       limit:
         min: {x: 0, y: 0, z: 0}
