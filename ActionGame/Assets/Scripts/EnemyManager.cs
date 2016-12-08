@@ -3,12 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public class EnemyManager : MonoBehaviour {
+public class EnemyManager : MonoBehaviour, IEnumerable {
+
+    public static EnemyManager Instance;
 
     public EnemySpawn[] MonsterSpawnArray;
     public EnemySpawn[] BossSpawnArray;
 
     private List<GameObject> enemies = new List<GameObject>();
+
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+    }
 	void Start () 
     {
         StartCoroutine(SpawnEnemy());
@@ -46,5 +54,10 @@ public class EnemyManager : MonoBehaviour {
     public void RemoveEnemy(GameObject enemy)
     {
         enemies.Remove(enemy);
+    }
+
+    public IEnumerator GetEnumerator()
+    {
+        return enemies.GetEnumerator();
     }
 }

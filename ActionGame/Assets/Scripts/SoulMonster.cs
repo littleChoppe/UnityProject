@@ -9,11 +9,13 @@ public class SoulMonster : MonoBehaviour {
 
     private float attackTimer = 0;
     private Transform player;
+    private PlayerATKAndDemage playerATKAndDemage;
     private Animator anim;
     private CharacterController cc;
 	void Start () 
     {
         player = GameObject.FindGameObjectWithTag(Tags.Player).transform;
+        playerATKAndDemage = player.GetComponent<PlayerATKAndDemage>();
         anim = GetComponent<Animator>();
         cc = GetComponent<CharacterController>();
         attackTimer = AttackTime;
@@ -22,6 +24,11 @@ public class SoulMonster : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
+        if (playerATKAndDemage.HP <= 0)
+        {
+            anim.SetBool("Walk", false);
+            return;
+        }
         Vector3 targetPos = player.position;
         targetPos.y = transform.position.y;
         transform.LookAt(targetPos);
