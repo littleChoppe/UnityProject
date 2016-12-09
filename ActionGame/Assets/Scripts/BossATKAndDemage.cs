@@ -5,6 +5,7 @@ public class BossATKAndDemage : ATKAndDemage {
 
     Transform player;
     PlayerATKAndDemage playerATKAndDemage;
+    public AudioClip AttackClip;
     void Start()
     {
         base.Start();
@@ -14,6 +15,7 @@ public class BossATKAndDemage : ATKAndDemage {
 
     void AttackPlayer()
     {
+        AudioSource.PlayClipAtPoint(AttackClip, transform.position, 1f);
         if (Vector3.Distance(transform.position, player.position) <= AttackDistance &&
            playerATKAndDemage.HP > 0)
         {

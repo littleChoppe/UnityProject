@@ -9,6 +9,7 @@ public class EnemyManager : MonoBehaviour, IEnumerable {
 
     public EnemySpawn[] MonsterSpawnArray;
     public EnemySpawn[] BossSpawnArray;
+    public AudioClip VictoryClip;
 
     private List<GameObject> enemies = new List<GameObject>();
 
@@ -44,6 +45,10 @@ public class EnemyManager : MonoBehaviour, IEnumerable {
         SpawnEnemy(MonsterSpawnArray);
         yield return new WaitForSeconds(0.5f);
         SpawnEnemy(BossSpawnArray);
+        while (enemies.Count > 0)
+            yield return new WaitForSeconds(0.2f);
+        AudioSource.PlayClipAtPoint(VictoryClip, transform.position, 1f);
+
     }
 
     void SpawnEnemy(EnemySpawn[] enemyArray)

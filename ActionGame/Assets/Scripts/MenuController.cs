@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour {
 
+    public static MenuController Instance;
+
     public SkinnedMeshRenderer HeadMeshRender;
     public Mesh[] HeadArray;
     int headIndex = 0;
@@ -17,9 +19,15 @@ public class MenuController : MonoBehaviour {
     int footIndex = 0;
 
     public SkinnedMeshRenderer[] bodyRenders ;
+    public Color[] ColorArray;
     public Color Purple;
     int colorIndex = -1;
 
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+    }
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -54,7 +62,7 @@ public class MenuController : MonoBehaviour {
 
     public void OnCyanButtonClick()
     {
-        colorIndex = 1; colorIndex = 0;
+        colorIndex = 1;
         OnColorSelect(Color.cyan);
     }
 

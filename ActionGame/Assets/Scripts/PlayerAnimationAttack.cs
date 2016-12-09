@@ -37,7 +37,7 @@ public class PlayerAnimationAttack : MonoBehaviour {
 
     public void OnRedBtnClick()
     {
-        anim.SetTrigger("AttackA");
+        anim.SetTrigger("AttackGun");
     }
 
     public void ToCanAttackB()
