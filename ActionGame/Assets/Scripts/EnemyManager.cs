@@ -7,6 +7,8 @@ public class EnemyManager : MonoBehaviour, IEnumerable {
 
     public static EnemyManager Instance;
 
+    private Transform player;
+
     public EnemySpawn[] MonsterSpawnArray;
     public EnemySpawn[] BossSpawnArray;
     public AudioClip VictoryClip;
@@ -17,6 +19,7 @@ public class EnemyManager : MonoBehaviour, IEnumerable {
     {
         if (Instance == null)
             Instance = this;
+        player = GameObject.FindGameObjectWithTag(Tags.Player).transform;
     }
 	void Start () 
     {
