@@ -149,7 +149,8 @@ namespace Consolation
                 }  
   
                 GUI.contentColor = logTypeColors[log.type];  
-                GUILayout.Label(log.message);  
+                GUILayout.Label(log.message);
+                GUILayout.Label(log.stackTrace);
             }  
   
             GUILayout.EndScrollView();  
